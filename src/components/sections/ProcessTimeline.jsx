@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import ScrollReveal from '../ui/ScrollReveal'
+import { executionTimeline } from '../../data/content'
 
 export default function ProcessTimeline() {
   const containerRef = useRef(null)
@@ -13,22 +14,19 @@ export default function ProcessTimeline() {
   // We draw the vertical line from top to bottom
   const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1])
 
-  const steps = [
-    { title: "Discovery Call", tagline: "15 minutes that change everything", desc: "A brief alignment on your goals, timeline, constraints, and budget. No pressure, just clarity.", duration: "Day 0" },
-    { title: "Deep Dive Workshop", tagline: "We become obsessed with your problem", desc: "We map user journeys, run competitive analysis, and unearth the technical constraints before writing a single line of code.", duration: "Week 1" },
-    { title: "Strategy Blueprint", tagline: "Your roadmap to digital dominance", desc: "We deliver a comprehensive architecture, proposed design system foundations, and technical stack choices.", duration: "Week 2" },
-    { title: "Design Sprints", tagline: "Pixels become possibilities", desc: "Weekly agile sprints. You get access to live Figma files and daily async updates. Feedback loops are tight and fast.", duration: "Weeks 3-5" },
-    { title: "Build & Iterate", tagline: "We ship. You approve. We refine.", desc: "Engineering happens transparently. We push to staging environments continuously so you can test as we build.", duration: "Weeks 4-7" },
-    { title: "Launch & Grow", tagline: "The beginning, not the end", desc: "Go-live is orchestrated meticulously. We set up analytics, monitor performance, and hand over the keys (or stay on for support).", duration: "Week 8+" }
-  ]
-
   const StepItem = ({ step, index }) => {
     const { ref, inView } = useInView({ threshold: 0.5 })
     
     return (
-      <div ref={ref} className="min-h-screen flex items-center relative py-32" id={`process-step-${index}`}>
+      <div ref={ref} className="min-h-[75vh] flex items-center relative py-20" id={`process-step-${index}`}>
         {/* Animated Dot indicator */}
-        <div className="absolute left-0 w-8 h-8 -translate-x-1/2 flex items-center justify-center z-10 group cursor-pointer" onClick={() => window.scrollTo({top: document.getElementById(`process-step-${index}`).offsetTop, behavior: 'smooth'})}>
+        <div 
+          className="absolute left-0 w-8 h-8 -translate-x-1/2 flex items-center justify-center z-10 group cursor-pointer" 
+          onClick={() => {
+            const el = document.getElementById(`process-step-${index}`)
+            if (el) el.scrollIntoView({ behavior: 'smooth' })
+          }}
+        >
           <motion.div 
             className="w-4 h-4 rounded-full border-2 transition-colors duration-500"
             animate={{ 
@@ -36,7 +34,7 @@ export default function ProcessTimeline() {
               backgroundColor: inView ? '#e8ff47' : '#080812'
             }}
           />
-          <span className="absolute left-8 font-mono text-xs opacity-0 group-hover:opacity-100 transition-opacity text-mist-900">Scroll</span>
+          <span className="absolute left-8 font-mono text-xs opacity-0 group-hover:opacity-100 transition-opacity text-mist-900">Stage</span>
         </div>
 
         <motion.div
@@ -52,16 +50,16 @@ export default function ProcessTimeline() {
           </div>
 
           <div className="relative z-10">
-            <span className="inline-block border border-white/10 text-mist-900 bg-ink-950 font-mono text-xs px-3 py-1 rounded-full mb-6">
+            <span className="inline-block border border-signal/30 text-signal bg-ink-950 font-mono text-xs px-3 py-1 rounded-full mb-6">
               {step.duration}
             </span>
-            <h3 className={`font-display text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 tracking-tight transition-colors duration-500 ${inView ? 'text-white' : 'text-mist-500'}`}>
+            <h3 className={`font-display text-3xl md:text-5xl font-semibold mb-4 tracking-tight transition-colors duration-500 ${inView ? 'text-white' : 'text-mist-500'}`}>
               {step.title}
             </h3>
-            <p className={`font-body text-xl md:text-2xl mb-6 transition-colors duration-500 ${inView ? 'text-signal' : 'text-mist-700'}`}>
+            <p className={`font-body text-lg md:text-xl mb-6 transition-colors duration-500 ${inView ? 'text-signal' : 'text-mist-700'}`}>
               "{step.tagline}"
             </p>
-            <p className="text-mist-900 text-base md:text-lg leading-relaxed max-w-lg">
+            <p className="text-mist-700 text-base md:text-lg leading-relaxed max-w-lg">
               {step.desc}
             </p>
           </div>
@@ -71,11 +69,18 @@ export default function ProcessTimeline() {
   }
 
   return (
-    <section ref={containerRef} className="bg-ink-900 relative" id="process">
+    <section ref={containerRef} className="bg-ink-900 relative border-t border-white/5" id="process">
       <div className="max-w-7xl mx-auto px-6 md:px-12 pt-32 pb-16">
         <ScrollReveal>
-          <p className="font-mono text-xs text-signal uppercase tracking-widest mb-4">Process</p>
-          <h2 className="font-display text-5xl md:text-7xl font-bold tracking-tight">How we get there.</h2>
+          <p className="font-mono text-xs text-signal uppercase tracking-widest mb-4">
+            Execution Lifecycle
+          </p>
+          <h2 className="font-display text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white mb-4">
+            From Tender to Handover.
+          </h2>
+          <p className="font-body text-mist-700 text-lg max-w-xl">
+            Our disciplined engineering and procurement process ensures zero-defect statutory compliance, on-time grid sync, and dependable long-term operations.
+          </p>
         </ScrollReveal>
       </div>
 
@@ -94,7 +99,7 @@ export default function ProcessTimeline() {
 
         {/* Steps contents */}
         <div className="flex-1 pb-32">
-          {steps.map((step, index) => (
+          {executionTimeline.map((step, index) => (
             <StepItem key={index} step={step} index={index} />
           ))}
         </div>

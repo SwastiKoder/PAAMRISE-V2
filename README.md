@@ -1,16 +1,42 @@
-# React + Vite
+# PAAMRISE (OPC) PRIVATE LIMITED — Official Corporate Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Incorporated under the Companies Act, 2013 · Schedule I (Sections 4 & 5) · Form No. INC-33 (e-MOA)  
+> Registered in the State of Odisha | Authorized Share Capital: ₹15,00,000
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🏛️ Corporate Profile & MOA Alignment
 
-## React Compiler
+**PAAMRISE (OPC) PRIVATE LIMITED** is an incorporated multi-sector enterprise headquartered in Bhubaneswar, Odisha. The corporate platform is strictly refactored and structured according to its statutory **e-Memorandum of Association (Form INC-33)**.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Core Business Pillars (Clause 3(a)):
+1. **Clause 3(a).1 — E-Commerce & Digital Commerce:** Online marketplace, digital trading, retail/wholesale consumer and industrial goods.
+2. **Clause 3(a).2 — Trading, Wholesale & Distribution:** Machinery, equipment, spare parts, tools, construction materials, and electrical goods supply.
+3. **Clause 3(a).3 — Government Tenders, Public Procurement & EPC:** Central/State Govt tenders, PSUs, Railways, Defence, GeM procurement, Works contracts, AMC & CMC.
+4. **Clause 3(a).4 — Public Utility, Civic Support & Facility Management:** Sanitation, housekeeping, facility management, and skilled manpower services.
+5. **Clause 3(a).5 — Electrical Contracting & Renewable Engineering:** LT/HT works, 33kV/11kV substations, industrial electrification, solar power plants, EV charging, and CCTV/automation.
+6. **Clause 3(a).6 — Digital Platforms, Cloud & Logistics Tech:** Custom enterprise software, warehousing management, payment integration, and logistics fulfillment.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Technology Stack
+- **Framework:** React 19 + Vite 8
+- **Styling:** Tailwind CSS v3 with Dark Luxury Aesthetic
+- **Animation:** Framer Motion (reduced motion compliant)
+- **Icons:** Lucide React
+- **Accessible Primitives:** Radix UI (Accordion, Dialog, Tabs)
+
+---
+
+## 🛠️ Local Development
+
+```bash
+# Install dependencies
+npm install
+
+# Run Vite dev server
+npm run dev
+
+# Build production bundle
+npm run build
+```

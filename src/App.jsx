@@ -6,15 +6,16 @@ import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import Hero from './components/sections/Hero'
 import LogoCloud from './components/sections/LogoCloud'
-import StorySection from './components/sections/StorySection'
+import MOASection from './components/sections/MOASection'
 import ServicesGrid from './components/sections/ServicesGrid'
+import StorySection from './components/sections/StorySection'
 import ProcessTimeline from './components/sections/ProcessTimeline'
 import CaseStudies from './components/sections/CaseStudies'
 import StatsSection from './components/sections/StatsSection'
 import TeamSection from './components/sections/TeamSection'
-import TestimonialsCarousel from './components/sections/TestimonialsCarousel'
 import TechStack from './components/sections/TechStack'
 import PricingSection from './components/sections/PricingSection'
+import TestimonialsCarousel from './components/sections/TestimonialsCarousel'
 import FAQSection from './components/sections/FAQSection'
 import BlogPreview from './components/sections/BlogPreview'
 import CTASection from './components/sections/CTASection'
@@ -32,15 +33,16 @@ export default function App() {
         <main>
           <Hero />
           <LogoCloud />
-          <StorySection />
+          <MOASection />
           <ServicesGrid />
+          <StorySection />
           <ProcessTimeline />
           <CaseStudies />
           <StatsSection />
           <TeamSection />
-          <TestimonialsCarousel />
           <TechStack />
           <PricingSection />
+          <TestimonialsCarousel />
           <FAQSection />
           <BlogPreview />
           <CTASection />
